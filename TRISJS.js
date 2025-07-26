@@ -1,6 +1,5 @@
 import { generateColorHex as gch, random, ascii, generateRand as gr, generatePhonemes as gp, generateGroups as ggr, generateText as gt, rdict} from "./modules/basics.js"
 import { Getmood, group, language, trissaeths, check, virus, location } from "./modules/class.js"
-import { getplots, landtype } from "./modules/plots.js"
 import { configuration } from "/rudiments/config/configs.js"
 
 // above are basic stuffzz
@@ -35,8 +34,6 @@ const world = {
     "size": 80
 }
 const languages = []
-const plots = getplots
-const assignments = landtype
 let date = {
     "day": 1,
     "year": 1,
