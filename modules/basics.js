@@ -14,6 +14,9 @@ export const ascii = [
     "'", "-"
 ]
 
+export function generateColorHex() {
+    return "#" + Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6, "0");
+}
 
 export function generateRand(a, b){
     let c = b - a
@@ -21,7 +24,7 @@ export function generateRand(a, b){
     return k
 }
 export function generateText(groups){
-    let leni = Math.round(2+Math.random()*3)
+    let leni = Math.round(2+Math.random()*2)
     let a = ""
     for(let i=0;i<leni;i++){
         a += random(groups) + random(vowel)
@@ -38,6 +41,17 @@ export function generatePhonemes(text){
         }
     }
     return res
+}
+
+export function rdict(dict){
+    let stop = Math.floor(Math.random()*Object.keys(dict).length)
+    let n = -1
+    for (let i in dict){
+        n++
+        if (n>=stop){
+            return dict[i]
+        }
+    }
 }
 
 export function generateGroups(list){
@@ -66,3 +80,4 @@ export function random(list) {
 export default function ver(){
     return "@1.0.1"
 }
+    
