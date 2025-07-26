@@ -9,6 +9,8 @@
     justify-content: center;
     padding: 5px;
     background-color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 #header::after{
@@ -26,9 +28,12 @@
     position: absolute;
     top: 0px;
     left: 0px;
-    max-height: 100vh;
-    max-width: 100vw;
-    padding: 20px;
+    height: 100vh;
+    width: 100vw;
+}
+
+.mono{
+    font-family: monospace;
 }
 
 #buttons{
@@ -37,22 +42,167 @@
     bottom: 0px;
     left: 0px;
     border-top: 2px solid gray;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
     width: 100vw;
-    min-height: 40px;
-    flex-direction: row;
+    min-height: 100px;
+    flex-direction: column;
     background: white;
 }
 
-#move{
+.window{
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+}
+
+#popupWindow{
+    position: fixed;
+    z-index: 100;
+    overflow-y: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 5px;
+    pointer-events: none;
+}
+
+.citrss{
     border: 2px solid gray;
     margin: 5px;
     transition: all 0.2s ease-out;
     box-shadow: 0px 0px 10px gray;
     border-radius: 100px;
     height: 50px;
+    font-family: serif;
 }
 
-#move:active{
+.citrss:hover{
     scale: 0.95;
     box-shadow: 0px 0px 10px rgba(0,0,0,20%);
+}
+
+.bordered{
+    background: white;
+    border: 2px solid gray;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#notice{
+    z-index: 20;
+    position: fixed;
+    color: gray;
+    top: 70px;
+    left: 10px;
+    font-size: 10px;
+}
+
+#dates{
+    z-index: 20;
+    position: fixed;
+    color: gray;
+    top: 20px;
+    left: 10px;
+}
+
+#move{
+    width: 70px;
+}
+
+.popup{
+    border: 2px solid gray;
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 12px;
+    color: gray;
+    margin: 10px;
+    overflow-y: hidden;
+    scroll-snap-align: start;
+    pointer-events: auto;
+}
+
+.popup::before{
+    position: absolute;
+    content: "(press to close)";
+    font-size: 10px;
+    color: gray;
+    bottom: 10px;
+    right: 10px;
+}
+
+.item{
+    background: white;
+    border: 2px solid gray;
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px;
+    min-height: 150px;
+}
+
+.d{
+    min-width: 120px;
+    font-size: 12px;
+}
+
+#dirb{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    bottom: 90px;
+    left: 0px;
+    width: 100vw;
+    height: 120px;
+    overflow-x: scroll;
+}
+
+.visited{
+    color: gray;
+    position: relative;
+}
+.visited::after{
+    content: "(visited)";
+    position: absolute;
+    top: -30px;
+}
+
+.parent{
+    width: 20px;
+    overflow: scroll;
+}
+
+#loca{
+    z-index: 30;
+    position: fixed;
+    left: 10px;
+    bottom: 20px;
+    color: gray;
+}
+
+#loading{
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    z-index: 1000;
+    background: black;
+    opacity: 95%;
+    display: grid;
+    padding-top: 20px;
+    color: white;
+}
+
+@keyframes fade-out{
+    from {
+        opacity: 1;
+    } to {
+        opacity: 0;
+    }
 }
